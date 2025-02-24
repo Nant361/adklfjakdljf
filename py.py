@@ -9,7 +9,12 @@ api_hash = "846bca703fc77480a7a7c9b02fe59b7d"
 client = TelegramClient("my_session", api_id, api_hash)
 
 async def main():
-    await client.start()  # Login ke Telegram
+    # Otomatis memasukkan nomor telepon dan menggunakan callback untuk kode
+    await client.start(
+        phone="6285173160125", 
+        code_callback=lambda: input("Masukin kodenya dulu lah  ! : ")
+    )
+
     bot_username = "@ePhoneNIK_Bot"  # Username bot
 
     while True:  # Loop agar bisa mengirim banyak pesan
